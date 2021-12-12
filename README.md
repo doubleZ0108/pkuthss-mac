@@ -2,9 +2,7 @@
 
 本项目核心基于[pkuthss](https://github.com/CasperVector/pkuthss) 1.9.1版本，主要进行Mac的适配修改和个人最佳实践说明
 
-<br/>
-
-## mac+vscode配置latex环境
+## 🖋Mac+VSCode配置Latex环境
 
 1. 下载并无脑安装[MacTex](https://link.zhihu.com/?target=http%3A//www.tug.org/mactex/mactex-download.html)（将近5个G而且在外网）
 
@@ -73,9 +71,6 @@
 
    </details>
 
-
-   > 这里跟网上的写法不同的是没加`xelatex -> bibtex -> xelatex*2`这个流程，原因在后面解释
-
 4. 创建一个tex文件写点东西试一试
 
    ```latex
@@ -94,14 +89,14 @@
 
 <br/>
 
-## 编译pkuthss
+## 📄编译pkuthss-mac
 
 1. clone该项目到本地
     ```
-    git clone xxx
+    git clone https://github.com/doubleZ0108/pkuthss-mac.git
     ```
 2. 在TEX标签下点击`Recipe: xelatex`进行编译
-3. 最终就得到了mac+vscode+pkuthss优雅写出来的论文啦🎉
+3. 最终就得到了Mac+VSCode+pkuthss优雅写出来的论文啦🎉
 
     <img src="https://upload-images.jianshu.io/upload_images/12014150-f8a6db887c3b636e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" width="25%;" />
 
@@ -110,7 +105,7 @@
 
 <details>
 
-<summary>从原pkuthss项目开始</summary>
+<summary>🧱从原pkuthss项目开始</summary>
 
 
 ## 编译pkuthss
