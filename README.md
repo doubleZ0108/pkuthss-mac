@@ -74,11 +74,11 @@
 4. 创建一个tex文件写点东西试一试
 
    ```latex
-   \\documentclass{article}
-   \\usepackage[UTF8, scheme = plain]{ctex}
-   \\begin{document}
+   \documentclass{article}
+   \usepackage[UTF8, scheme = plain]{ctex}
+   \begin{document}
    测试中文
-   \\end{document}
+   \end{document}
    ```
 
 5. 依次进行编译和预览
