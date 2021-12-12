@@ -18,55 +18,64 @@
 
    ```json
    "latex-workshop.latex.tools": [
-        {
-            "name": "xelatex",
-            "command": "xelatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "latexmk",
-            "command": "latexmk",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "-pdf",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "pdflatex",
-            "command": "pdflatex",
-            "args": [
-                "-synctex=1",
-                "-interaction=nonstopmode",
-                "-file-line-error",
-                "%DOC%"
-            ]
-        },
-        {
-            "name": "bibtex",
-            "command": "bibtex",
-            "args": [
-                "%DOCFILE%"
-            ]
-        }
-    ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "xelatex",
-            "tools": [
-                "xelatex"
-            ]
-        },
-    ],
-    "editor.wordWrap": "on"
+     {
+       "name": "xelatex",
+       "command": "xelatex",
+       "args": [
+         "-synctex=1",
+         "-interaction=nonstopmode",
+         "-file-line-error",
+         "-pdf",
+         "%DOC%"
+       ]
+     },
+     {
+       "name": "latexmk",
+       "command": "latexmk",
+       "args": [
+         "-synctex=1",
+         "-interaction=nonstopmode",
+         "-file-line-error",
+         "-pdf",
+         "%DOC%"
+       ]
+     },
+     {
+       "name": "pdflatex",
+       "command": "pdflatex",
+       "args": [
+         "-synctex=1",
+         "-interaction=nonstopmode",
+         "-file-line-error",
+         "%DOC%"
+       ]
+     },
+     {
+       "name": "bibtex",
+       "command": "bibtex",
+       "args": [
+         "%DOCFILE%"
+       ]
+     }
+   ],
+   "latex-workshop.latex.recipes": [
+     {
+       "name": "xelatex -> bibtex -> xelatex*2",
+       "tools": [
+         "xelatex",
+         "bibtex",
+         "xelatex",
+         "xelatex"
+       ]
+     },
+     {
+       "name": "xelatex",
+       "tools": [
+         "xelatex"
+       ]
+     },
+   ],
+   "editor.wordWrap": "on"
    ```
 
    </details>
@@ -135,8 +144,8 @@
 
 5. 最终在命令行打开`example/`，然后通过`latexmk`命令进行编译，如果没有其他问题即可得到最终的pdf文件
 
-6. 在vscode中编译也类似的，直接`Recipe: xelatex`即可
+6. 在vscode中编译也类似的，直接`Recipe: xelatex -> bibtex -> xelatex*2`即可
 
-   > 填上面的坑并挖下面的坑，如果用`xelatex -> bibtex -> xelatex*2`，就总是有一堆报错，也没搞很明白，留下问题的关键词有需要的朋友自己检索吧`I found no \\citation commands---while reading file`
+   > 注意 如果没进行引用的话，在编译过程中会报错`I found no \\citation commands---while reading file`，添加`\cite{}`即可
 
 </details>
