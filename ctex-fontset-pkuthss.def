@@ -1,0 +1,58 @@
+\ProvidesExplFile{\ExplFileName}{}{}{}
+
+\sys_if_engine_pdftex:TF
+  {
+    \ctex_zhmap_case:nnn
+      {
+        \ctex_punct_set:n { windows }
+        \setCJKmainfont
+          [ BoldFont = STHeiti.ttf , ItalicFont = STSTKaiti.ttf ] { STSong.ttc }
+        \setCJKsansfont { STHeiti.ttf }
+        \setCJKmonofont { STFangsong.ttf }
+        \setCJKfamilyfont { zhkai }  { STSTKaiti.ttf }
+        \setCJKfamilyfont { zhfs }   { STFangsong.ttf }
+        \setCJKfamilyfont { zhsong } { STSong.ttc }
+        \setCJKfamilyfont { zhhei }  { STHeiti.ttf }
+        %\setCJKfamilyfont { zhli }   { simli.ttf }
+        %\setCJKfamilyfont { zhyou }  { simyou.ttf }
+        \ctex_punct_map_family:nn { \CJKrmdefault } { zhsong }
+        \ctex_punct_map_family:nn { \CJKsfdefault } { zhhei }
+        \ctex_punct_map_family:nn { \CJKttdefault } { zhfs }
+        \ctex_punct_map_itshape:nn { \CJKrmdefault } { zhkai }
+        \ctex_punct_map_bfseries:nn { \CJKrmdefault } { zhhei }
+      }
+      {
+        \ctex_load_zhmap:nnnn { rm } { zhhei } { zhfs } { windows }
+        \ctex_punct_set:n { windows }
+        \ctex_punct_map_family:nn { \CJKrmdefault } { zhsong }
+        \ctex_punct_map_bfseries:nn { \CJKrmdefault } { zhhei }
+        \ctex_punct_map_itshape:nn { \CJKrmdefault } { zhkai }
+      }
+      {
+        \tl_set:Nn \CJKrmdefault { rm }
+        \tl_set:Nn \CJKsfdefault { sf }
+        \tl_set:Nn \CJKttdefault { tt }
+      }
+  }
+  {
+    \setCJKmainfont
+      [ BoldFont = STHeiti , ItalicFont = STKaiti ] { STSong }
+    \setCJKsansfont { STHeiti }
+    \setCJKmonofont { STFangsong }
+    \setCJKfamilyfont { zhsong }  { STSong }
+    \setCJKfamilyfont { zhhei }   { STHeiti }
+    \setCJKfamilyfont { zhkai }   { STKaiti }
+    \setCJKfamilyfont { zhfs }    { STFangsong }
+    %\setCJKfamilyfont { zhli }    { LiSu }
+    %\setCJKfamilyfont { zhyou }   { YouYuan }
+  }
+
+\NewDocumentCommand \songti   { } { \CJKfamily { zhsong } }
+\NewDocumentCommand \heiti    { } { \CJKfamily { zhhei } }
+\NewDocumentCommand \fangsong { } { \CJKfamily { zhfs } }
+\NewDocumentCommand \kaishu   { } { \CJKfamily { zhkai } }
+%\NewDocumentCommand \lishu    { } { \CJKfamily { zhli } }
+%\NewDocumentCommand \youyuan  { } { \CJKfamily { zhyou } }
+
+\endinput
+% vim:ft=tex:ts=2:sw=2:et

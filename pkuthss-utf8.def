@@ -1,0 +1,51 @@
+% Peking University dissertation document class
+%
+% Copyright (c) 2008-2009 solvethis
+% Copyright (c) 2010-2013,2015,2021 Casper Ti. Vector
+% Copyright (c) 2021 Kurapica
+%
+% This work may be distributed and/or modified under the conditions of the
+% LaTeX Project Public License, either version 1.3 of this license or (at
+% your option) any later version.
+% The latest version of this license is in
+%   https://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX version
+% 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% The current maintainer of this work is Casper Ti. Vector.
+%
+% This work consists of the following files:
+%   pkuthss.cls
+%   pkuthss.def
+%   pkuthss-gbk.def
+%   pkuthss-utf8.def
+%   pkulogo.eps
+%   pkuword.eps
+
+\ProvidesFile{pkuthss-utf8.def}
+	[2021/10/16 v1.9.1 Labels and captions in UTF-8 encoding
+		for the pkuthss document class]
+
+\def\label@ctitle{题目：}
+\def\label@cauthor{姓\hphantom{汉字}名：}
+\def\label@studentid{学\hphantom{汉字}号：}
+\def\label@school{院\hphantom{汉字}系：}
+\def\label@cmajor{专\hphantom{汉字}业：}
+\def\label@direction{研究方向：}
+\def\label@cmentor{导\hphantom{汉字}师：}
+\def\label@ckeywords{关键词：}
+\def\label@blindcover{（匿名评阅论文封面）}
+\def\label@blindctitle{中文题目：}
+\def\label@blindetitle{英文题目：}
+\def\label@blinddiscipline{一级学科：}
+\def\label@blindmajor{二级学科：}
+\def\label@blindid{论文编号：}
+
+\def\titlepagename{封面}
+\def\cuniversity{北京大学}
+\def\cthesisname{博士学位论文}
+\def\cabstractname{摘要}
+
+\endinput
+% vim:ft=tex:ts=2:sw=2
