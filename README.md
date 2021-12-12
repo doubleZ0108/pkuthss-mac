@@ -4,7 +4,7 @@
 
 ## 🖋Mac+VSCode配置Latex环境
 
-1. 下载并无脑安装[MacTex](https://link.zhihu.com/?target=http%3A//www.tug.org/mactex/mactex-download.html)（将近5个G而且在外网）
+1. 下载并无脑安装[MacTex](https://www.tug.org/mactex/mactex-download.html)（将近5个G而且在外网）
 
 2. vscode安装Latex Workshop插件
 
