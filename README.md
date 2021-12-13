@@ -182,8 +182,8 @@
 
    在这里踩的坑最多，先说最简单最原始的方法，直接将需要引用的文献BibTex放到`thesis.bib`中即可，然后在需要引用的部分`\cite{name_of_citation}`即可，在example中作者还给出了三种不同的引用样式：
 
-   - \cite未格式化的  `1`
-   - \parencite带方括号的  `[2]`
+   - \cite未格式化的  1
+   - \parencite带方括号的  [2]
    - \supercite上标且带方括号的 <sup>[1,2]</sup>
 
    使用中还发现几个问题，第一是参考文献的样式不太对，按照要求把`thesis.tex`25行的biblatex改成如下即可，其中第二个参数是用来忽略出版社和出版地信息的，如果在参考文献中出现[S.l.]: [s.n.]则说明你需要添加这个配置
@@ -256,24 +256,30 @@
 
    <details>
    <summary>🚪又一扇任意门</summary>
-   
+
    直接在模板里修改会发现几乎每一章/部分后面都有一个空白页面，对于不是要做毕设只是想用模板的同学来说非常抓狂
-   
+
    一个简单的做法是在开头第一行加上openany参数 `\documentclass[UTF8]{pkuthss}`，但仔细观察会发现奇数页的页眉是这个chapter的名字，但偶数页是一个固定的名称，大概是“北京大学硕士学位论文”类似的
-   
+
    这个问题暂时没有找到优雅的解决方案，我个人应急的方法如下：
-   
-   在每个章节tex文件`\chapter`的下方加入两行，这两行是指定这个页面的页眉信息
-   
+
+   比如要去掉`test.tex`后的空白页，则在`\input{test.tex}`前加入这行
+
+   ```latex
+   \let\cleardoublepage\clearpage
+   ```
+
+   然后在每个章节tex文件`\chapter`的下方加入两行，这两行是指定这个页面的页眉信息
+
    ```latex
    \thispagestyle{fancy}
    \fancyhead[C]{Your Personal Title}
    ```
-   
+
    这样可以解决不同页面上方页眉内容不一致的问题，但测试下来还有一个bug，如果这章超过了一页，则第二页的页眉页脚都会消失，暂时还没找到解决方案
-   
+
    关于页眉页脚的更详细设置可以搜索`\pagestyle`相关内容
-   
+
    </details>
 
 3. 有待发现和补充💭
