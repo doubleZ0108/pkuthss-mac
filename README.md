@@ -261,7 +261,9 @@
 
    一个简单的做法是在开头第一行加上openany参数 `\documentclass[UTF8]{pkuthss}`，但仔细观察会发现奇数页的页眉是这个chapter的名字，但偶数页是一个固定的名称，大概是“北京大学硕士学位论文”类似的
 
-   这个问题暂时没有找到优雅的解决方案，我个人应急的方法如下：
+   
+
+   ~~这个问题暂时没有找到优雅的解决方案，我个人应急的方法如下：
 
    比如要去掉`test.tex`后的空白页，则在`\input{test.tex}`前加入这行
 
@@ -277,6 +279,17 @@
    ```
 
    这样可以解决不同页面上方页眉内容不一致的问题，但测试下来还有一个bug，如果这章超过了一页，则第二页的页眉页脚都会消失，暂时还没找到解决方案
+
+   或者可以修改`pkuthss.cls`中`\fancypagestyle{plain}`这部分代码，删掉其中关于twoside的部分，变为
+
+   ```latex
+   \fancypagestyle{plain}{
+   	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
+   	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
+   	\fancyhead[C]{\zihao{5}\normalfont\thss@int@setcase{\leftmark}}
+   }
+   \pagestyle{plain}
+   ```
 
    关于页眉页脚的更详细设置可以搜索`\pagestyle`相关内容
 
